@@ -14,6 +14,7 @@
 
 package org.opensds.vmware.common;
 
+import org.opensds.vmware.common.adapters.opensds.OpenSDS;
 import org.opensds.vmware.common.adapters.thirdparty.oceanstor.OceanStor;
 
 import java.lang.reflect.Constructor;
@@ -22,6 +23,7 @@ public class StorageFactory {
     public static String[] listStorages() {
         return new String[]{
             OceanStor.class.getName(),
+            OpenSDS.class.getName()
         };
     }
 
