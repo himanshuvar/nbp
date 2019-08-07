@@ -35,7 +35,7 @@ class VolumeMOBuilder {
         String id = jsonObject.getString("id");
         String wwn = jsonObject.getString("id");
         ALLOC_TYPE allocType = ALLOC_TYPE.THIN;
-        long capacity = jsonObject.getLong("size") *1024*1024*1024;
+        long capacity = jsonObject.getLong("size");
 
         return new VolumeMO(name, id, wwn, allocType, capacity);
     }
@@ -46,8 +46,8 @@ class StoragePoolMOBuilder {
         String name = jsonObject.getString("name");
         String id = jsonObject.getString("id");
         POOL_TYPE type = (jsonObject.getString("storageType").equals("block")) ? POOL_TYPE.BLOCK : POOL_TYPE.FILE;
-        long totalCapacity = jsonObject.getLong("totalCapacity") *1024*1024*1024;
-        long freeCapacity = jsonObject.getLong("freeCapacity") *1024*1024*1024;
+        long totalCapacity = jsonObject.getLong("totalCapacity");
+        long freeCapacity = jsonObject.getLong("freeCapacity");
 
         return new StoragePoolMO(name, id, type, totalCapacity, freeCapacity);
     }
