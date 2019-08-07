@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<project name="ngc" basedir="" default="main">
+<project name="ngc-plugin" basedir="" default="main">
     <property name="root" value="../"/>
-     <property name="ngc.dir" value="../../ngc-register/ngcplugin"/>
-    <property name="esdk.dir" value="${ngc.dir}/esdk"/>
+    <property name="NGC_DIR" value="../../NGC-Register/ngcplugin"/>
+    <property name="OPENSDS_NGC_DIR" value="${NGC_DIR}/opensds-ngc"/>
     <property environment="env"/>
     <property name="VSPHERE_SDK_HOME" value="${env.VSPHERE_SDK_HOME}"/>
     <property name="platform.selfDev" value="${root}/lib"/>
 
     <target name="init">
         <echo message="init, mkdir"/>
-        <mkdir dir="${ngc.dir}"/>
-        <mkdir dir="${esdk.dir}"/>
-        <mkdir dir="${esdk.dir}\plugins"/>
+        <mkdir dir="${NGC_DIR}"/>
+        <mkdir dir="${OPENSDS_NGC_DIR}"/>
+        <mkdir dir="${OPENSDS_NGC_DIR}\plugins"/>
     </target>
 
     <target name="build-java" depends="init">
         <echo message="build「NGCPlugin-service」！"/>
-        <ant dir="..\service" antfile="build-java.xml"/>
+        <ant dir="${root}" antfile="build-java.xml"/>
     </target>
     <target name="build-resources" depends="build-java">
         <echo message="build「NGCPlugin-html_build-resources」！"/>
@@ -30,9 +30,9 @@
 
     <target name="copy" depends="build-war">
         <echo message="copy！"/>
-        <copy todir="${esdk.dir}\plugins">
-            <fileset dir="..\service\target">
-                <include name="ngc.jar"/>
+        <copy todir="${OPENSDS_NGC_DIR}\plugins">
+            <fileset dir="..\target">
+                <include name="ngc-services.jar"/>
             </fileset>
 
             <fileset dir="..\html\target">
@@ -40,7 +40,7 @@
             </fileset>
 
            <fileset dir="${platform.selfDev}">
-                <include name="opensds_common.jar"/>
+                <include name="ngc-adapter-manager.jar"/>
             </fileset>
 
             <fileset dir="${VSPHERE_SDK_HOME}\libs">
@@ -48,7 +48,7 @@
             </fileset>
         </copy>
 
-        <copy todir="${esdk.dir}">
+        <copy todir="${OPENSDS_NGC_DIR}">
             <fileset dir="..\config">
                 <include name="plugin-package.xml"/>
             </fileset>
@@ -56,14 +56,14 @@
     </target>
 
 
-    <target name="zipesdk" depends="copy">
-        <echo message="zip esdk.zip!"/>
-        <zip destfile="${ngc.dir}/esdk.zip"
-             basedir="${esdk.dir}" includes="**"></zip>
+    <target name="zip-opensds-ngc" depends="copy">
+        <echo message="zip opensds-ngc.zip!"/>
+        <zip destfile="${NGC_DIR}/opensds-ngc.zip"
+             basedir="${OPENSDS_NGC_DIR}" includes="**"></zip>
     </target>
 
-    <target name="clean" depends="zipesdk">
-        <delete dir="${esdk.dir}"/>
+    <target name="clean" depends="zip-opensds-ngc">
+        <delete dir="${OPENSDS_NGC_DIR}"/>
     </target>
 
     <target name="main" depends="clean">

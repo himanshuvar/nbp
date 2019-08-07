@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.opensds.vmware</groupId>
-	<artifactId>ngcregister</artifactId>
+	<artifactId>NGC-Register</artifactId>
 	<version>1.0.0</version>
-	<name>ngcregister</name>
+	<name>NGC-Register</name>
 	<description>NGC Plugin register</description>
 
 	<properties>
@@ -123,37 +123,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<!--<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<includeSystemScope>true</includeSystemScope>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>-->
-	<!--<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-			　　 <artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>make-zip</id>
-						<phase>package</phase>
-						<goals>
-							　<goal>single</goal> &lt;!&ndash; 该打包任务只运行一次 &ndash;&gt;
-						</goals>
-						<configuration>
-							　　　　　<descriptors>
-							　　　　　　　　　　　　　　　　<descriptor>src/main/script/assembly.xml</descriptor>
-							　　　　　　　　　　　　　　</descriptors>
-						　　　　　　　　　　</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>-->
 </project>

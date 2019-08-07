@@ -20,7 +20,7 @@ table thead tr th,table tbody tr td {
 </style>
 <script type="text/javascript">
 	var rowIndex = "";
-	var ns = com_soda_storage_devices;
+	var ns = org_opensds_storage_devices;
 
 	$(document).ready(function() {
 		refreshData();
@@ -84,7 +84,7 @@ table thead tr th,table tbody tr td {
 		$("#deviceList tr").each(function() {
 			var text = $(this).find('td:eq(3)').text();
 			if(""!=text){
-				text="urn:vri:soda:Storage:"+ text;
+				text="urn:vri:opensds:Storage:"+ text;
 			}
 			if ("" != text && text == parent.deviceId) {
 				$(this).find("td").css("background-color","#abcefc");

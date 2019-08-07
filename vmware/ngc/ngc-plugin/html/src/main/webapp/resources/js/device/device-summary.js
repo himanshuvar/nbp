@@ -11,7 +11,7 @@ $(document).ready(
         makeHelp();
         //changesize();
         // Namespace shortcut
-        var ns = com_soda_storage_devices;
+        var ns = org_opensds_storage_devices;
 
         // Get current object and return if document is loaded before
         // context is set
@@ -22,7 +22,7 @@ $(document).ready(
         // Data url to get System Info
         //var dataUrl = ns.buildDataSystemUrl(deviceId);
         // dataUrl = dataUrl + "?t=" + new Date();
-        var dataUrl = ns.baseURL + "esdk/rest/device/get?deviceID=" + deviceId;
+        var dataUrl = ns.baseURL + "opensds/rest/device/get?deviceID=" + deviceId;
 
         // Do the actual call now and save as GlobalRefresh handler
         refreshData();

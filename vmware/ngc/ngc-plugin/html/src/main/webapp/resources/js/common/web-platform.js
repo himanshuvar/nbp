@@ -1,6 +1,6 @@
 // ------------------------------------------------------------------------------
 // Javascript initialization to include when using the HTML bridge:
-// - Creates the plugin's private namespace com_soda_storage_devices
+// - Creates the plugin's private namespace org_opensds_storage_devices
 // - Defines APIs to ensure compatibility with future Web Client HTML platform
 // ------------------------------------------------------------------------------
 
@@ -43,19 +43,19 @@ var getClientType = WEB_PLATFORM.getClientType;
 
 // Define a private namespace using the plugin bundle name,
 // It should be the only global symbol added by this plugin!
-var com_soda_storage_devices;
-if (!com_soda_storage_devices) {
-    com_soda_storage_devices = {};
+var org_opensds_storage_devices;
+if (!org_opensds_storage_devices) {
+    org_opensds_storage_devices = {};
 
     // The web context path to use for server requests
     // (same as the Web-ContextPath value in the plugin's MANIFEST.MF)
 
     //fix: IN IE 11 , getClientType has the emerge error "不能执行已释放 Script 的代码";
     try{
-        com_soda_storage_devices.webContextPath = WEB_PLATFORM.getRootPath() + "/esdk";
+        org_opensds_storage_devices.webContextPath = WEB_PLATFORM.getRootPath() + "/opensds";
     }
     catch (err){
-        com_soda_storage_devices.webContextPath = "/vsphere-client/esdk";
+        org_opensds_storage_devices.webContextPath = "/vsphere-client/opensds";
         console.log("getRootPath error: " + err);
     }
 
@@ -69,28 +69,28 @@ if (!com_soda_storage_devices) {
            getClientType = getClientTypeFun;
         }
         if(getClientType() == "flex") {
-            com_soda_storage_devices.baseURL = "/vsphere-client/";
+            org_opensds_storage_devices.baseURL = "/vsphere-client/";
         }else{
-            com_soda_storage_devices.baseURL = "/ui/";
+            org_opensds_storage_devices.baseURL = "/ui/";
         }
     }catch (err) {
-       com_soda_storage_devices.baseURL = "/vsphere-client/";
+       org_opensds_storage_devices.baseURL = "/vsphere-client/";
        console.log("getClientType error: " + err);
      }
 
-    com_soda_storage_devices.deviceNS = "org.opensds.vmware.ngc.device";
+    org_opensds_storage_devices.deviceNS = "org.opensds.vmware.ngc.device";
 
     // The API setup is done inside an anonymous function to keep things clean.
     // See the HTML bridge documentation for more info on those APIs.
     (function () {
         // Namespace shortcut
-        var ns = com_soda_storage_devices;
+        var ns = org_opensds_storage_devices;
 
         // ------------------------ Private functions -------------------------------
 
         // Get a string from the resource bundle defined in plugin.xml
         function getString(key, params) {
-            var result =  WEB_PLATFORM.getString("com_soda_storage_devices", key, params);
+            var result =  WEB_PLATFORM.getString("org_opensds_storage_devices", key, params);
             if(result == null){
                 return key;
             }else{
@@ -146,7 +146,7 @@ if (!com_soda_storage_devices) {
 
         // -------------------------- Public APIs --------------------------------
 
-        // Functions exported to the com_soda_storage_devices namespace
+        // Functions exported to the org_opensds_storage_devices namespace
         ns.getString = getString;
         ns.buildDataUrl = buildDataUrl;
         ns.buildDataSystemUrl = buildDataSystemUrl;
@@ -208,7 +208,7 @@ if (!com_soda_storage_devices) {
             }
         }
     })();
-} // end of if (!com_soda_storage_devices)
+} // end of if (!org_opensds_storage_devices)
 
 
 function isIE() { //ie?

@@ -426,7 +426,7 @@ function createDatastore() {
     } else {
         url = "/rest/datastore/createDatastores?objectId=" + hostId + "&serverGuid=" + serverGuid;
     }
-    var ns = com_soda_storage_devices;
+    var ns = org_opensds_storage_devices;
     var requsetURL = ns.webContextPath + url;
 	//WEB_PLATFORM.callActionsController(url, json);
 	$.ajax({
