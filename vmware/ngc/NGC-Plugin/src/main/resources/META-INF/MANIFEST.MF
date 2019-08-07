@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: NGCPlugin-service
 Bundle-SymbolicName: org.opensds.vmware.ngc.service
 Bundle-Version: 1.5.50
-Bundle-Vendor: Soda
+Bundle-Vendor: OpenSDS
 Bundle-ClassPath: .
 Tool: Bundlor 1.1.0.RELEASE
 Export-Package: org.opensds.vmware.ngc.controller,

@@ -25,7 +25,7 @@ if(type == "createDatastoreOrLun"){
     window.location.href="datastoreOrLun-p1-main.html?type=" + type + "&objectId="+objectId + "&serverGuid="+serverGuid;
 } else {
     var hostId = arr[2] + ":" + arr[3];
-    var ns = com_soda_storage_devices;
+    var ns = org_opensds_storage_devices;
     var hostUrl = ns.webContextPath + "/rest/data/hoststatus/" + hostId + "?serverGuid=" + serverGuid + "&t=" + new Date();
         $.ajax({
             async:true,

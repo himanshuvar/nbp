@@ -11,7 +11,7 @@ $(document).ready(
         makeHelp();
         //changesize();
         // Namespace shortcut
-        var ns = com_soda_storage_devices;
+        var ns = org_opensds_storage_devices;
 
         // Get current object and return if document is loaded before
         // context is set

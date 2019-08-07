@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: NGCPlugin-ui
 Bundle-SymbolicName: org.opensds.vmware.ngc.ui
 Bundle-Version: 1.5.50
-Bundle-Vendor: Soda
+Bundle-Vendor: OpenSDS
 Bundle-ClassPath: .
 Web-ContextPath: vsphere-client/opensds
 Import-Package: org.opensds.vmware.ngc.controller,
